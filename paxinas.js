@@ -9,6 +9,7 @@ const paxinaCopia = (req,res)=>{
 }
 
 const paxinaLogueo = (req,res)=>{
+    console.log('estou en pá´xina de logueo')
     res.sendFile("dsfasd.html", { root: carpetaStatic2 });
 }
 module.exports = {

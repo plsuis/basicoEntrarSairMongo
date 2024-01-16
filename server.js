@@ -25,7 +25,7 @@ app.use(express.static(carpetaStatic));
 // RUTAS MEDIANTE END-POINTS
 app.get("/outra",paxinaOutra)
 app.get("/copia",paxinaCopia)
-
+app.get("/logueo",paxinaLogueo)
 app.post('/logueo',leoUsers,paxinaLogueo)
 
 //START SERVER

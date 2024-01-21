@@ -2,7 +2,7 @@ const {MongoClient, ObjectId} = require("mongodb")
 const url = process.env.URLMONGO
 const database = process.env.BBDD
 const client = new MongoClient(url)
-const coleccion = "usuarios";
+const coleccion = process.env.COLECCION;
 
 
 
@@ -25,7 +25,7 @@ async function isUser(usuario,pwd) {
       
     } finally {
      
-      await client.close();
+      //await client.close();
      
     }
   }

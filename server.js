@@ -1,3 +1,4 @@
+
 require('dotenv').config()
 const url = require("url")
 const express = require("express");
@@ -7,12 +8,18 @@ const app = express();
 const fileUpload = require("express-fileupload");
 // IMPORTAMOS
 const {leoUsers} = require("./funcions.js")
+const {rexistrarUsuario} =require("./funcions/index.js")
 const {enviarToken} = require("./funcions/borrar.js")
 const {
     paxinaCopia,
     paxinaOutra,
     paxinaLogueo
 } = require("./paxinas.js")
+
+//middleware
+const {creacionToken} = require("./middlewares/index.js")
+
+
 // USAMOS
 
 app.use(express.json());
@@ -25,7 +32,7 @@ const carpetaStatic2 = path.join(__dirname, "static/views/");
 app.use(express.static(carpetaStatic));
 // Creo un middleware para comprobalo token do usuario
 
-app.post("/tokenOk",(req,res,next)=>{
+app.post("/tokenOk",(req,res)=>{
     console.log('o inicial : ',req.url)
     let mensaxe;
     if(req.headers.authorization){
@@ -49,13 +56,7 @@ app.get("/copia",(req,res,next)=>{
     res.sendFile("dsfasd.html", { root: carpetaStatic2 });
 },paxinaCopia) 
 
-
- /*app.get("/copia/:token",(req,res,next)=>{
-    const {token} = req.params
-    console.log('token recibido',token)
-    next()
-},paxinaCopia) */
-
+app.post('/rexistra',rexistrarUsuario)
 app.post('/logueo',leoUsers,paxinaLogueo)
 app.post('/omeutoken',enviarToken)
 //START SERVER

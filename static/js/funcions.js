@@ -32,7 +32,24 @@ const envioDatosOServer = ()=>{
         destinoCopia()
     })
 }
-
+const rexistroUsuario = ()=>{
+   
+    rexistrarUser.addEventListener("click",async (e)=>{
+        console.log('clico rexistro de usuario')
+        e.preventDefault()
+        let datossEnvio = {
+            method:'POST',
+            body: new FormData(formRexistro)
+        }
+        let envio = await fetch('/rexistra',datossEnvio)
+        let resposta = await envio.json() // recibo a páxina que quero pintar
+        
+        console.log('resposta: ',resposta)
+       
+        
+    })
+}
 export{
-    envioDatosOServer
+    envioDatosOServer,
+    rexistroUsuario
 }

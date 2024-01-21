@@ -1,5 +1,5 @@
-import {envioDatosOServer} from "./funcions.js";
+import {envioDatosOServer,rexistroUsuario} from "./funcions.js";
 
 envioDatosOServer()
-
+rexistroUsuario()
 

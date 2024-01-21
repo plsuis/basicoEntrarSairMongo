@@ -6,6 +6,7 @@ const app = express();
 const fileUpload = require("express-fileupload");
 // IMPORTAMOS
 const {leoUsers} = require("./funcions.js")
+const {enviarToken} = require("./funcions/borrar.js")
 const {
     paxinaCopia,
     paxinaOutra,
@@ -24,10 +25,20 @@ app.use(express.static(carpetaStatic));
 
 // RUTAS MEDIANTE END-POINTS
 app.get("/outra",paxinaOutra)
-app.get("/copia",paxinaCopia)
+/*app.get("/copia",(req,res,next)=>{
+    console.log("req",req.headers.authorization)
+    res.sendFile("dsfasd.html", { root: carpetaStatic2 });
+},paxinaCopia) 
+*/
+
+ app.get("/copia/:token",(req,res,next)=>{
+    const {token} = req.params
+    console.log('token recibido',token)
+    next()
+},paxinaCopia) 
 
 app.post('/logueo',leoUsers,paxinaLogueo)
-
+app.post('/omeutoken',enviarToken)
 //START SERVER
 app.listen(5000, function() {
     console.log("Server running");

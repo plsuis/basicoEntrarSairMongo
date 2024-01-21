@@ -1,12 +1,5 @@
-envioForm.addEventListener("click",async (e)=>{
-    let datoEnvio = {
-        method:'POST',
-        body: new FormData(datosForm)
-    }
-    let envio = await fetch('/logueo',datoEnvio)
-    let resposta = await envio.json()
+import {envioDatosOServer} from "./funcions.js";
 
-    /**
-     * if resposta = logueado =>
-     */
-})
+envioDatosOServer()
+
+

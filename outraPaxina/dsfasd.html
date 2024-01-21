@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>copia</title>
-    <script async src="../js/dsfasd.js"></script>
 </head>
 <body>
-    Estou en copia
+    Estou en outra
     <!-- <a href="./outra">ir a de antes</a> -->
-    <button id="irAOutra">ir a outra</button>
+    <button id="irACopia">ir a copia</button>
     <button id="sair">Sair</button>
     <script>
-        window.addEventListener("DOMContentLoaded",()=>{
-    console.log("Estou en copia páxina cargada")
-        })
+
+        let local = localStorage.getItem('test')
+        console.log('local',local)
     </script>
 </body>
 </html>

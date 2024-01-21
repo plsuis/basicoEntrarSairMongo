@@ -9,7 +9,8 @@ const destinoCopia = ()=>{
         e.preventDefault()
         let token = localStorage.getItem('test')
        
-        location.replace(`./copia/${token}`)
+        //location.replace(`./copia/${token}`)
+        location.replace(`./copia`)
     })
 }
 

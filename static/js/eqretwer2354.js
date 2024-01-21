@@ -4,5 +4,6 @@ sair.addEventListener("click",()=>{
 irAOutra.addEventListener("click", (e)=>{
     e.preventDefault()
     let token = localStorage.getItem('test')
-    location.pathname = `./copia/${token}`
+    //location.pathname = `./copia/${token}`
+    location.pathname = `./copia`
 })

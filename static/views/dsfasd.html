@@ -12,8 +12,19 @@
     <button id="irAOutra">ir a outra</button>
     <button id="sair">Sair</button>
     <script>
-        window.addEventListener("DOMContentLoaded",()=>{
+        window.addEventListener("DOMContentLoaded",async ()=>{
     console.log("Estou en copia páxina cargada")
+    let token = localStorage.getItem('test')
+            let envio = await fetch ("/tokenOk",{
+                method:'POST',
+                headers:{
+                    Authorization:token
+                }
+            })
+
+            let resposta = await envio.json()
+            console.log('a resposta foi do token: ',resposta)
+
         })
     </script>
 </body>

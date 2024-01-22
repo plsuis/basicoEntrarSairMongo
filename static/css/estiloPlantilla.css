@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: orange;
+}
+
+h3{
+    text-align: center;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    height: 25px;
+    padding: 15px;
+    background-color: bisque;
+}
+button{
+    height: 20px;
+}

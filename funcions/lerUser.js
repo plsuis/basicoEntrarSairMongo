@@ -7,6 +7,7 @@ const coleccion = process.env.COLECCION;
 
 
 async function isUser(usuario,pwd) {
+  let saida = false;
     try {
       
       await client.connect();
@@ -15,18 +16,18 @@ async function isUser(usuario,pwd) {
       
       let query = {name:usuario}
       const result = coll.find(query)
-      let saida = false;
+      
         for await(const documento of result){
           if(documento.pwd === parseInt(pwd)){
             saida = true;
           }
         }  
-      return saida
+      
       
     } finally {
      
-      //await client.close();
-     
+      await client.close();
+      return saida
     }
   }
 

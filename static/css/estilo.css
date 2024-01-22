@@ -23,3 +23,8 @@ form > input{
 h3{
     text-align: center;
 }
+.menu{
+    display: flex;
+    padding: 15px;
+    background-color: bisque;
+}

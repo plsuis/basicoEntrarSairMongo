@@ -24,7 +24,7 @@ async function rexistrarUsuario(req,res) {
       res.send(saida)
     } finally {
      
-      //await client.close();
+      await client.close();
      
     }
   }

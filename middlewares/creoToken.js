@@ -1,16 +1,15 @@
-const jwt = require("jsonwebtoken");
-const creacionToken = (req,res,next)=>{
-    console.log('entra ',req.body);
-    const {user,pwd} = req.body;
-    let usuario = pwd + user;
-    console.log('usuario ',usuario)
-    let _token = jwt.sign({dato:usuario},process.env.SECRETO)
-    req.token = _token;
-    req.usuario = usuario
-   
-    next()
+let jwt = require('jsonwebtoken');
+
+const enviarToken = (req,res)=>{
+    let conxunto = req.body.nome + req.body.pwd
+    console.log('o token: ',req.body,conxunto,req.body.nome)
+    let token1 = jwt.sign({ dato: conxunto }, process.env.SECRETO);
+
+    res.send({
+        mensaxe:token1
+    })
 }
 
 module.exports = {
-    creacionToken
+    enviarToken
 }

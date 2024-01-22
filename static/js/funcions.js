@@ -10,7 +10,65 @@ const destinoCopia = ()=>{
         let token = localStorage.getItem('test')
        
         //location.replace(`./copia/${token}`)
-        location.replace(`./copia`)
+        //location.replace(`./copia`)
+        console.log('en outra que envía inicialmente sen arquivo js, e collo o token: ',token)
+    let datosEnvio = {
+        method: 'GET',
+        headers:{ "Authorization": token }
+    }
+    console.log('o Envio; ',datosEnvio)
+    //location.pathname = `./copia/${token}`
+    //location.pathname = `./copia`
+    
+    let envio = await fetch("./copia",datosEnvio)
+    let resposta = await envio.text()
+
+    if(resposta != "Falta a cabeceira de autorización"){
+        let elementodDiv = document.createElement('div')
+        elementodDiv.innerHTML =  resposta
+        let num = document.querySelector('.paxina').childElementCount
+        if(num != 0){
+            console.log('entra en num')
+            document.querySelector('.paxina').children[0].remove()
+        }
+        document.querySelector('.paxina').appendChild(elementodDiv)  
+         //document.querySelector('html').innerHTML = resposta
+        location.replace("./#copia")//
+    }else{
+        console.log(resposta)
+    }
+    })
+}
+const destinoOutra = ()=>{
+    irAOutra.addEventListener("click",async (e)=>{
+        e.preventDefault()
+        let token = localStorage.getItem('test')
+        console.log('en `copia` que envía inicialmente sen arquivo js, e collo o token: ',token)
+    let datosEnvio = {
+        method: 'GET',
+        headers:{ "Authorization": token }
+    }
+    console.log('o Envio; ',datosEnvio)
+    
+    
+    let envio = await fetch("./outra",datosEnvio)
+    let resposta = await envio.text()
+
+    if(resposta != "Falta a cabeceira de autorización"){
+        let elementodDiv = document.createElement('div')
+        elementodDiv.innerHTML =  resposta;
+        console.log('childElementCount: ',document.querySelector('.paxina').childElementCount)
+        let num = document.querySelector('.paxina').childElementCount
+        if(num != 0){
+            console.log('entra en num')
+            document.querySelector('.paxina').children[0].remove()
+        }
+        document.querySelector('.paxina').appendChild(elementodDiv) 
+        //document.querySelector('html').innerHTML = resposta
+        location.replace("./#outra")//
+    }else{
+        console.log(resposta)
+    }
     })
 }
 
@@ -28,8 +86,10 @@ const envioDatosOServer = ()=>{
     
         respostaCliente(resposta,datoEnvio) // función que me pinta no html a páxina recibida
        
-        saindo()
+        
         destinoCopia()
+        destinoOutra()
+        saindo()
     })
 }
 const rexistroUsuario = ()=>{

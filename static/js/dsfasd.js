@@ -1,9 +1,9 @@
 sair.addEventListener("click",()=>{
     window.location.pathname= "./"
 })
-irAOutra.addEventListener("click", async (e)=>{
-    e.preventDefault()
+irAOutra.addEventListener("click", ()=>{
+    console.log('holass')
     
-    location.pathname = `./outra`// opcion ok
+    //location.pathname = `./outra`// opcion ok
     
 })

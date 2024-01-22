@@ -13,12 +13,13 @@ async function isUser(usuario,pwd) {
       await client.connect();
       const db = client.db(database);
       const coll = db.collection(coleccion);
-      
+      console.log(usuario,'pwd',pwd)
       let query = {name:usuario}
       const result = coll.find(query)
       
         for await(const documento of result){
-          if(documento.pwd === parseInt(pwd)){
+         
+          if(documento.pwd === pwd){
             saida = true;
           }
         }  

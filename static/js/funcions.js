@@ -73,7 +73,6 @@ const destinoOutra = ()=>{
 }
 
 const envioDatosOServer = ()=>{
-    
     envioForm.addEventListener("click",async (e)=>{
         e.preventDefault()
         let datoEnvio = {
@@ -86,7 +85,7 @@ const envioDatosOServer = ()=>{
     
         respostaCliente(resposta,datoEnvio) // función que me pinta no html a páxina recibida
        
-        
+        document.querySelector('link').setAttribute("href","./css/estiloPlantilla.css")
         destinoCopia()
         destinoOutra()
         saindo()

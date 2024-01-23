@@ -125,6 +125,7 @@ const f_rexistrarUser = async (e)=>{
     
 }
 const f_sair = ()=>{
+    localStorage.removeItem("test")
     window.location.replace("./")
 }
 export {
